@@ -46,6 +46,9 @@ int main() {
 				std::cout << std::fixed << "Rank: " << static_cast<int>(s.rank) << "\n x: " << s.x << " y: " << s.y << " z: " << s.z << std::endl;
 				});
 
+		// serparate each 10 solutions
+		std::cout << "-----------------------------" << std::endl;
+
 		// take top 1000 solutions
 		const int SAMPLE_SIZE = 1000;
 		std::vector<Solution> sample;
