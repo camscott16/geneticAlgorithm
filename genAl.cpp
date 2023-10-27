@@ -6,6 +6,7 @@
 #include <math.h>
 #include <random>
 #include <vector>
+#include <algorithm>
 
 struct Solution {
 
@@ -25,25 +26,23 @@ int main() {
 	// declare vector to store solutions
 	std::vector<Solution> solutions;
 	const int NUM = 100000;
-	for (int i = 0; i < NUM; i++) {
+	for (int i = 0; i < NUM; i++) 
 		solutions.push_back(Solution{0 , unif(device), unif(device), unif(device)});
-		
 
-		// run the fitness function
-		for (auto& s : solutions) {
-			s.fitness();
+	// run the fitness function
+	for (auto& s : solutions) {
+		s.fitness();
+}
 
-}	
-
-		// sort the solutions by rank gained from fitness function
-		std::sort(solutions.begin(), solutions.end(), [](const auto& lhs, const auto& rhs){
-			return lhs.rank > rhs.rank;
-});	
-
-		// print the top 10 solutions
-		std::for_each(solutions.begin(), solutions.begin() + 10, [](const auto& s){
-			std::cout << std::fixed << "Rank: " << static_cast<int>(s.rank) << "\n x: " << s.x << " y: " << s.y << " z: " << s.z << std::endl;
+	// sort the solutions by rank gained from fitness function
+	std::sort(solutions.begin(), solutions.begin(), [](const auto& lhs, const auto& rhs){
+		return lhs.rank > rhs.rank;
 });
 
+	// print the top 10 solutions
+	std::for_each(solutions.begin(), solutions.begin() + 10, [](const auto& s){
+		std::cout << std::fixed << "Rank " << static_cast<int>(s.rank) << "\n x: " << s.x << " y: " << s.y << " z: " << s.z << " \n";
+});
 
+	
 }
