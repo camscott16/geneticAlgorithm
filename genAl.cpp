@@ -41,7 +41,7 @@ int main() {
 });	
 
 		// print the top 10 solutions
-		std::for_each(solutions.begin(), solutions.end() + 10, [](const auto& s){
+		std::for_each(solutions.begin(), solutions.begin() + 10, [](const auto& s){
 			std::cout << std::fixed << "Rank: " << static_cast<int>(s.rank) << "\n x: " << s.x << " y: " << s.y << " z: " << s.z << std::endl;
 });
 
